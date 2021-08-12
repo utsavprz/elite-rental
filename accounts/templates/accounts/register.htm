@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Register</title>
+	<link rel="stylesheet" href="{% static 'accounts/register.css' %}">
+</head>
+<body>
+	<div id="container">
+		<div class="logoHolder">
+			<div class="logo">
+				<img src="{%static 'accounts/Elite rental logo.png'%}">
+			</div>
+		</div>
+		<div id="cred-container">
+					<div class="sep">
+		</div>
+			<div class="title">
+				<h2>Create an account</h2>
+			</div>
+			<form action="register" method="POST">
+				{% csrf_token %}
+			<div class="row1">		
+				<div class="col">
+					<input type="text" name="first_name" placeholder="First Name">
+				</div>
+				<div class="col">
+
+					<input type="text" name="last_name" placeholder="Last Name">
+
+				</div>
+			</div>
+			<div class="row2">	
+				<div class="col">
+					
+					<input type="text" name="username" placeholder="Username">
+
+				</div>
+				<div class="col">
+
+					<input type="email" name="email" placeholder="Email">
+				</div>
+			</div>
+			<div class="row3">		
+				<div class="col">
+
+					<input type="password" name="password1" placeholder="Password">
+				</div>
+				<div class="col">
+					
+					<input type="password" name="password2" placeholder="Confirm Password">
+				</div>
+			</div>
+			<div class="row4">
+				<input type="Submit" class="register-btn">
+			</div>
+		</form>
+
+
+
+
+		<div class="signin">
+			Already have an account? <a href="login.htm">Sign In</a>
+		</div>
+		</div>
+
+
+
+
+
+		
+	</div>
+</body>
+</html>
