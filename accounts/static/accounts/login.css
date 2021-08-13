@@ -9,12 +9,12 @@ body{
 }
 
 #container{
-	background-color: whitesmoke;
+	background-color: rgb(245, 245, 245);
 	position: relative;
 	height: 80vh;
 	width: 80%;
 	margin: 70px auto;
-	box-shadow: 3px 3px 10px #888888;
+	box-shadow: 0 2px 3px #C8D0D8;
 }
 
 .logoHolder{
@@ -66,7 +66,7 @@ body{
 	border-color: blue;
 }
 
-.register-btn{
+.login-btn{
 	margin-top: 25px;
 	width: 20%;
 	border-radius: 50px;
@@ -78,8 +78,8 @@ body{
 	font-weight: bold;
 	cursor: pointer;
 }
-.register-btn:hover,
-.register-btn:focus {
+.login-btn:hover,
+.login-btn:focus {
   box-shadow: 0 1em 1em -0.4em grey;
   transform: translateY(-0.25em);
   transition: 0.3s;

@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'home/index.css' %}">
+</head>
+<body>
+	<header>
+		<div class="container">
+			<div id="branding">
+				<h1>
+					<span class="highlight">Elite</span>
+					Rental
+				</h1>
+			</div>
+			<nav>
+				<ul>
+					<li><a class="active" href="#">Home</a></li>
+					<li><a href="#">Services</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Contact</a></li>
+					<li><a href="#">FAQ</a></li>
+					<span >
+						{% if user.is_authenticated %}
+							<li><a href="#">{{request.user}}</a></li>
+							<li ><a href="{% url 'accounts:logout' %}">Logout</a></li>
+						{% else %}
+						<li><a href="{% url 'accounts:loginPage' %}">Login</a></li>
+						{% endif %}
+					</span>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<section id="showcase">
+		<div class="container">
+		</div>
+	</section>
+
+	<section id="info1">
+		<div class="container">
+			<h2>Why Choose Us</h2>
+			<p>Explore your first class car rental service</p>
+			<div class="card-container">
+				<div class="card" style="background-color: #FCB401;">
+					<img src="{% static 'home/PngItem_2102230.png' %}">
+					<h3>Varities of Vehicles</h3>
+					<p>Lorem ipsum dolor sit amet, consectadipiscing elit. Aenean commodo ligula eget dolor.</p>
+				</div>
+				<div class="card" style="background-color: #212181;">
+					<img src="{% static 'home/lipart.png' %}">
+					<h3>Best Rate Guarantee</h3>
+					<p>Lorem ipsum dolor sit amet, consectadipiscing elit. Aenean commodo ligula eget dolor.</p>
+				</div>
+				<div class="card" style="background-color: #FE7000;">
+					<img src="{% static 'home/phone.png' %}">
+					<h3>24/7 Customer Service</h3>
+					<p>Lorem ipsum dolor sit amet, consectadipiscing elit. Aenean commodo ligula eget dolor.</p>
+				</div>
+			</div>
+
+		</div>
+
+	</section>
+
+	<section id="info2">
+		<div class="container">
+			<h2>About Us</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore molestias ipsa veritatis nihil iusto maiores natus dolor, a reiciendis corporis obcaecati ex. Totam assumenda impedit aut eum, illum distinctio saepe explicabo. Consequuntur molestiae similique id quos, quasi quas perferendis laboriosam, fugit natus odit totam! Id dolores saepe, sint debitis rerum dolorem tempora aliquid, pariatur enim nisi. Quia ab iusto assumenda.</p>
+
+		</div>
+	</section>
+
+	<section id="info3">
+		<div class="container">
+			<h2>Testimonials</h2>
+			<h4>From all over nepal</h4>
+			<div class="info3-card">
+				<div class="info1-pp">
+					<img src="img/2.jpg">
+				</div>
+				
+				<h3>Jaden Smith</h3>
+				<p>Lorem ipsum dolor sit amet, consectadipiscing elit. Aenean commodo ligula eget dolor.</p>
+			</div>
+			<div class="info3-card">
+				<div class="info1-pp">
+					<img src="img/2.jpg">
+				</div>
+				<h3>Jaden Smith</h3>
+				<p>Lorem ipsum dolor sit amet, consectadipiscing elit. Aenean commodo ligula eget dolor.</p>
+			</div>
+			<div class="info3-card">
+				<div class="info1-pp">
+					<img src="img/2.jpg">
+				</div>
+				<h3>Jaden Smith</h3>
+				<p>Lorem ipsum dolor sit amet, consectadipiscing elit. Aenean commodo ligula eget dolor.</p>
+			</div>
+		</div>
+	</section>
+
+	<section id="newsletter">
+		<h2>Join Our Newsletter</h2>
+		<form>
+			<input type="email" placeholder="Enter your email">
+		</form>
+		<button type="submit" class="join-btn">Join</button>
+	</section>
+
+	<footer>
+		<img src="img/Elite rental logo with white text.png">
+	</footer>
+</body>
+</html>
