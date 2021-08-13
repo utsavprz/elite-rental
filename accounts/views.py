@@ -1,36 +1,50 @@
 from django.shortcuts import redirect, render
-from django.template import loader
-from django.contrib.auth.models import User,auth
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
+
+from .forms import CreateUserForm
+from django.contrib.auth import authenticate, login, logout
+
+
 # Create your views here.
 def register(request):
-    context={
-
-    }
+    form = CreateUserForm()
 
     if request.method == 'POST':
-        first_name = request.POST['first_name']
-        last_name = request.POST['last_name']
-        username = request.POST['username']
-        email = request.POST['email']
-        password1 = request.POST['password1']
-        password2 = request.POST['password2']
-
-        if password1 == password2:
-            if User.objects.filter(username=username).exists():
-                print('Username Already Taken')
-            elif User.objects.filter(email=email).exists():
-                print('Email Already Taken')
-            user = User.objects.create_user(username=username, password=password1, email=email, first_name=first_name, last_name=last_name)
-            user.save();
-            print('user created')
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('accounts:success')
         else:
-            print("Password not match")
-        return redirect('login.htm')
-    else:
-        return render(request, "accounts/register.htm",context)
+            messages.error(request, "Error")
 
-def login(request):
-    context={
-
+    context ={
+        'form':form
     }
-    return render(request, "accounts/login.htm",context)
+    return render(request, 'accounts/register.htm',context)
+
+def loginPage(request):
+
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(request,username=username, password=password)
+
+        if username and password != '':
+            if user is not None:
+                login(request,user)
+                return redirect('accounts:success')
+            else:
+                messages.info(request, "*Username or password is incorrect")
+        else:
+            messages.info(request, "*Enter username and password")
+
+        context={
+
+        }
+    return render(request, "accounts/login.htm")
+
+def success(request): 
+    return render(request, "accounts/success.htm")

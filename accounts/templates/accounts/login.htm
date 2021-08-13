@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Register</title>
+	<title>Login</title>
 	<link rel="stylesheet" href="{% static 'accounts/login.css' %}">
 </head>
 <body>
@@ -21,20 +21,24 @@
 				<h2>Login</h2>
 			</div>
 			<div class="entryField">		
-			<form>
-				<input type="email" placeholder=Email>
-			</form>
+		<form method="POST">
+				{%csrf_token %}
+				<input type="text" name="username" placeholder=Username>
 			</div>
 			<div class="entryField">		
-			<form>
-				<input type="password" placeholder="Password">
-			</form>
+
+				<input type="password" name="password" placeholder="Password">
 			</div>
-		<button class="register-btn" type="register">
-			Login
-		</button>
+			<button class="login-btn" type="submit">
+				Login
+			</button>
+		</form>
+
 		<div class="signin">
-			Don't have an account? <a href="register.htm">Register</a>
+			Don't have an account? <a href="{% url 'accounts:register' %}">Register</a><br><br>
+			{% for message in messages %}
+			<p style="color: red;">{{message}}</p>
+			{% endfor %}
 		</div>
 		</div>
 
