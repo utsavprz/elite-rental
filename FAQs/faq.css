@@ -93,7 +93,7 @@ body{
 }
 
 .seperator{
-     background-color: orange ;
+     background-color: navy ;
     width: 5%;
     border: 0;
     height: 5px;
@@ -103,16 +103,18 @@ body{
 
 
 .box{
-   
+  
     width: 50%;
     border-radius: 7px;
     margin: 0 auto;
     padding: 20px;
+    height: 400px;
 }
 
 
 
 .question{
+   
     margin-top: 20px;
     margin-bottom: 10px;
     font-size: 24px;
@@ -123,14 +125,14 @@ body{
 .text{
     font-size: 20px;
     padding-left: 27px;
-    background-color: BlanchedAlmond ;
+    background-color:#0288D1 ;
     border-radius: 7px;
     width: 80%;
 }
 
 .subbox{
     border: 2px;
-    border-color: orange;
+    border-color: #01579B;
     border-style: solid;
     border-radius: 7px;
     margin-bottom: 10px;
@@ -138,6 +140,11 @@ body{
 
 
 }
+
+
+
+
+
 
 
 
@@ -173,10 +180,13 @@ body{
 
 
 .subbox:hover{
-    box-shadow: 5px 8px darkorange;
-    transition: 0.2s;
+    box-shadow: 3px 6px #0277BD;
+    transition: 0.4s;
 
 }
+
+
+
 
 /*.subbox2:hover{
     box-shadow: 5px 8px darkorange;
