@@ -37,7 +37,7 @@ body{
 	background-color: rgba(0, 0, 0, 0.2);
 	color: white;
 	border-radius: 10px;
-	padding-top: 10px;
+	padding-top: 35px;
 }
 
 .heading{
@@ -105,7 +105,7 @@ body{
 	width: 30%;
 	padding: 1%;
 	text-align: center;
-	min-height: 510px;
+	min-height: 650px;
 	border-radius: 6px;
 
 	/*border: 2px;
@@ -118,8 +118,10 @@ body{
 }
 
 .boxes img{
-	width:200px;
+	width:350px;
 	box-shadow: 3px 3px 3px 0 black;
+	border-radius: 3px;
+	max-height: 200px;
 }
 
 .boxes:hover{
