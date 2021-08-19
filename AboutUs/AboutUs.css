@@ -1,0 +1,148 @@
+/*html{
+	scroll-behavior: smooth;
+}
+*/
+
+body{
+	margin: 0;
+	padding: 0;
+	line-height: 1.5em;
+	font-family: Montserrat;
+
+}
+
+
+.container{
+	width: 100%;
+	
+	overflow: hidden;
+	margin: auto;
+}
+
+
+.showcase{
+	min-height: 755px;
+	background-image: url("bg.jpg");
+	background-repeat: no-repeat ;
+	background-size: cover;
+	background-position: center;
+	
+}
+
+.box{
+	transition: 1.6s;
+	margin: 15% auto ;
+	min-height:200px ;
+	width:30% ;
+	background-color: rgba(0, 0, 0, 0.2);
+	color: white;
+	border-radius: 10px;
+	padding-top: 10px;
+}
+
+.heading{
+
+	padding: 2%;
+	font-weight:bold;
+	font-size: 2em;
+	margin: 0;
+	text-align: center;
+}
+
+
+.subheading{
+	font-size: 1em;
+	text-align: center;
+
+}
+
+.seperator{
+     background-color: #f9735b ;
+    width: 5em;
+    border: 0;
+    height: 5px;
+    
+    margin:  10px auto 20px;
+}
+
+.button{
+	border-radius: 8px;
+	border-width: 1px;
+	padding: 2%;	
+
+}
+
+.button:hover{
+	cursor: pointer;
+	box-shadow: 2px 2px 2px 0 grey;
+	transition: 0.3s;
+}
+
+
+
+
+
+.welcome{
+	text-align: center;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+
+
+
+.services{
+	margin-top: 5%;
+}
+
+
+.boxes{
+	
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 15px;
+	float: left;
+	width: 30%;
+	padding: 1%;
+	text-align: center;
+	min-height: 510px;
+	border-radius: 6px;
+
+	/*border: 2px;
+    border-color: red;
+    border-style: solid;
+    border-radius: 7px;*/
+    
+    background-color: rgba(0, 0, 0, 0.2);
+
+}
+
+.boxes img{
+	width:200px;
+	box-shadow: 3px 3px 3px 0 black;
+}
+
+.boxes:hover{
+	cursor: pointer;
+	box-shadow: 5px 5px 5px 0 grey;
+	transition: 0.3s;
+}
+
+
+.scroll{
+	text-decoration: none;
+	
+
+
+
+}
+
+.scroll:visited{
+	color: black;
+
+}
+
+.scroll{
+	scroll-behavior: smooth;
+}
+

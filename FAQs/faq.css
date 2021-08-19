@@ -1,79 +1,11 @@
-/*
-
-* {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
-header{
-    margin: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.8 );
-    color: #ffffff;
-    padding-top: 30px;
-    min-height: 70px;
-
-}
-
-.container{
-    width: 100%;
-    margin: 0;
-    overflow: hidden;
-
-}
-
-header a{
-    color: #ffffff;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 16px;
-}
-
- 
 
 
-header li{
-    float: left;
-    display: inline;
-    padding: 0 20px 0 20px;
-}
-a.active{
-    color: #1175CE;
-}
-a:hover{
-    color:#1175CE;
-    transition: 0.2s;
-}
-
- 
-
-header #branding{
-    float: left;
-    margin-left: 5%;
-}
-
- 
-
-header #branding h1{
-    margin: 0;
-    font-style: italic;
-}
-
- 
-
-header .highlight{
-    color: #1175CE;
-}
-
- 
 
 
-header nav{
-    float: right;
-    margin-right: 5%;
-    margin-top: 10px;
-}
-*/
+
+
+
+
 
 /* For Body */
 
@@ -144,34 +76,6 @@ body{
 
 
 
-
-
-
-
-/*.subbox2{
-    border: 2px;
-    border-color: orange;
-    border-style: solid;
-    border-radius: 7px;
-    margin-bottom: 10px;
-}
-
-.subbox3{
-    border: 2px;
-    border-color: orange;
-    border-style: solid;
-    border-radius: 7px;
-    margin-bottom: 10px;
-}
-
-.subbox4{
-    border: 2px;
-    border-color: orange;
-    border-style: solid;
-    border-radius: 7px;
-    margin-bottom: 10px;
-}*/
-
 .question:hover{
     cursor: pointer;
     font-weight: bold;
@@ -180,31 +84,10 @@ body{
 
 
 .subbox:hover{
-    box-shadow: 3px 6px #0277BD;
+    box-shadow: 3px 3px 3px 0   #0277BD;
     transition: 0.4s;
 
 }
 
+/* FOOTER */
 
-
-
-/*.subbox2:hover{
-    box-shadow: 5px 8px darkorange;
-    transition: 0.2s;
-
-
-}
-
-.subbox3:hover{
-    box-shadow: 5px 8px darkorange;
-    transition: 0.2s;
-
-
-}
-
-.subbox4:hover{
-    box-shadow: 5px 8px darkorange;
-    transition: 0.2s;
-
-
-}*/
