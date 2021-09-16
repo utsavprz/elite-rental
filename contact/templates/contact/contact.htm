@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{% static 'contact/contact.css' %}">
+    <link rel="stylesheet" type="text/css" href="{%static 'contact/contact.css'%}">
 </head>
 <body>
     <header>
@@ -20,14 +20,14 @@
 				<ul>
 					<li><a href="{% url 'home:index' %}">Home</a></li>
 					<li><a href="#">Services</a></li>
-					<li><a href="#">About</a></li>
+					<li><a href="{% url 'about:about_index' %}">About</a></li>
 					<li><a class="active" href="{% url 'contact:contact_index' %}">Contact</a></li>
 					<li><a href="{% url 'faq:faq_index' %}">FAQ</a></li>
 					<li class="link-sep">|</li>
 
 					<span>
 						{% if user.is_authenticated %}
-							<li style="margin-right: -20px;"><a class="img-hover" href="#"><img src="{% static 'home/user-24.png' %}"></a></li>
+							<li style="margin-right: -20px;"><a class="img-hover" href="{% url 'accounts:profile' %}"><img src="{% static 'home/user-24.png' %}"></a></li>
 							<li style="color: yellow;"><a class="img-hover" href="{% url 'accounts:logout' %}"><img src="{% static 'home/logout-24.png' %}"></a></li>
 						{% else %}
 						<li style="color: yellow;"><a href="{% url 'accounts:loginPage' %}">Login</a></li>

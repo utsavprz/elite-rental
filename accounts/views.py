@@ -2,10 +2,10 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
+from django.conf import settings
 
 from .forms import CreateUserForm
 from django.contrib.auth import authenticate, login, logout
-from django.views.decorators.cache import cache_control
 from django.contrib.auth.decorators import login_required
 
 
@@ -62,3 +62,16 @@ def success(request):
 def logoutUser(request):
     logout(request)
     return redirect('home:index')
+
+def userProfile(request):
+    current_user = request.user
+
+    data = User.objects.get(id=current_user.id)
+
+
+    if request.user.is_authenticated:
+        context={
+            'user': data
+        }
+
+        return render(request, "accounts/profile.html", context)

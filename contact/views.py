@@ -16,8 +16,13 @@ def contact_index(request):
         if name and email and subject and messages != '':
             contact = Contact(name=name, email=email, subject=subject, message=message)
             contact.save()
+            current_user = request.user
+            print(f"The user that send this message is {current_user}")
             return redirect('contact:success')
-    return render(request,'contact/contact.htm', {})
 
-def success(request): 
+    return render(request,'contact/contact.htm')
+
+def success(self,request): 
     return render(request, "contact/success.htm")
+
+

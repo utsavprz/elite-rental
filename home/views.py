@@ -8,3 +8,6 @@ def index(request):
 
     }
     return render(request,'home/index.html',context)
+
+def error_404(request,exception):
+    return render(request, 'home/error.html')

@@ -23,17 +23,17 @@
 				<ul>
 					<li><a href="{% url 'home:index' %}">Home</a></li>
 					<li><a href="#">Services</a></li>
-					<li><a href="#">About</a></li>
+					<li><a href="{% url 'about:about_index' %}">About</a></li>
 					<li><a href="{% url 'contact:contact_index' %}">Contact</a></li>
 					<li><a class="active" href="{% url 'faq:faq_index' %}">FAQ</a></li>
 					<li class="link-sep">|</li>
 
 					<span>
 						{% if user.is_authenticated %}
-							<li style="margin-right: -20px;"><a class="img-hover" href="#"><img src="{% static 'home/user-24.png' %}"></a></li>
-							<li style="color: yellow;"><a class="img-hover" href="{% url 'accounts:logout' %}"><img src="{% static 'home/logout-24.png' %}"></a></li>
+							<li style="margin-right: -20px;"><a class="img-hover" href="{% url 'accounts:profile' %}"><img src="{% static 'home/user-24.png' %}"></a></li>
+							<li><a class="img-hover" href="{% url 'accounts:logout' %}"><img src="{% static 'home/logout-24.png' %}"></a></li>
 						{% else %}
-						<li style="color: yellow;"><a href="{% url 'accounts:loginPage' %}">Login</a></li>
+						    <li style="color:yellow;"><a href="{% url 'accounts:loginPage' %}">Login</a></li>
 						{% endif %}
 					</span>
 				</ul>
