@@ -25,7 +25,8 @@ urlpatterns = [
     path('accounts/',include('accounts.urls')),
     path('faq/',include('faq.urls')),
     path('contact/',include('contact.urls')),
-    path('about/',include('about.urls'))
+    path('about/',include('about.urls')),
+    path('services/',include('services.urls'))
 ]
 
 handler404 ="home.views.error_404"

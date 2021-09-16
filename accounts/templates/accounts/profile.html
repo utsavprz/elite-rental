@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Profile</title>
-    
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'accounts/prof.css' %}"> 
 
 
@@ -22,7 +22,7 @@
 			<nav>
 				<ul>
 					<li><a href="{% url 'home:index' %}">Home</a></li>
-					<li><a href="#">Services</a></li>
+					<li><a href="{% url 'services:index' %}">Services</a></li>
 					<li><a href="{% url 'about:about_index' %}">About</a></li>
 					<li><a href="{% url 'contact:contact_index' %}">Contact</a></li>
 					<li><a href="{% url 'faq:faq_index' %}">FAQ</a></li>
@@ -60,17 +60,18 @@
             <input name="Username" type="text" value={{user.username}} class="inf1"readonly>
 
             <label for="DateJoin">Date Joined:</label>
-            <input name="DateJoin" type="datetime" value={{user.date_joined}} class="inf1" readonly>
+            <input name="DateJoin" type="datetime" value="{{user.date_joined}}" class="inf1" readonly>
 
             <label for="LastLogin">Last Login:</label>
-            <input name="LastLogin" type="datetime" value={{user.last_login}} class="inf1" readonly>
+            <input name="LastLogin" type="datetime" value="{{user.last_login}}" class="inf1" readonly>
         </div>
     </div>
 
         <div class="main-content">
         <div class="container">
             <h1 class="secondaryTitle">Account Information</h1>
-
+            <form method="POST">
+                {% csrf_token %}
                 <label for="UserId">User Id:</label>
                 <select name="UserId" id="userId" class="inf1">
                     <option value={{user.id}}>{{user.id}}</option>
@@ -86,18 +87,53 @@
                 <input name="Email" type="text" class="inf1"  value={{user.email}} readonly>
                 <br>
             <h1 class="secondaryTitle">Address Information</h1>
-                <form>
                     <label for="address">Address:</label>
-                    <input name="address" type="text" class="inf1">
+                    <input name="address" type="text" 
+
+                    {% if address == "Enter Detail"%}
+                    placeholder="Enter Address"
+                    {% else %}
+                    value="{{address.address}}" 
+                    readonly
+                    {% endif %}
+
+                    class="inf1">
 
                     <label for="street">Street:</label>
-                    <input name="street" type="text" class="inf1">
+                    <input name="street" type="text" 
+                    
+                    {% if address == "Enter Detail"%}
+                    placeholder="Enter Street"
+                    {% else %}
+                    value="{{address.street}}" 
+                    readonly
+                    {% endif %}
+                    
+                    class="inf1">
 
-                    <label for="postal">Postal Code:</label>
-                    <input name="postal" type="text" class="inf1">
+                    <label for="postalcode">Postal Code:</label>
+                    <input name="postalcode" type="text" 
+                    
+                    {% if address == "Enter Detail"%}
+                    placeholder="Enter Postal Code"
+                    {% else %}
+                    value={{address.postalcode}} 
+                    readonly
+                    {% endif %}
+                    
+                    class="inf1">
 
                     <label for="city">City:</label>
-                    <input name="city" type="text" class="inf1">
+                    <input name="city" type="text" 
+                    
+                    {% if address == "Enter Detail"%}
+                    placeholder="Enter City"
+                    {% else %}
+                    value={{address.city}} 
+                    readonly
+                    {% endif %}
+                    
+                    class="inf1">
 
                     <label for="country">Country:</label>
                     <select name="country" id="country" class="inf1">

@@ -93,7 +93,7 @@ body {
 
 .sep{
 	height: 6px;
-	background-color: rgb(0, 76, 255);
+	background-color: red;
 	border: 0;
 	width: 4%;
 }
