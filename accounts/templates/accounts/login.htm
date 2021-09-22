@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Login</title>
+	<link rel="stylesheet" href="{% static 'accounts/login.css' %}">
+</head>
+<body>
+	<div id="container">
+		<div class="logoHolder">
+			<div class="logo">
+				<img src="{% static 'accounts/Elite rental logo.png'%}">
+			</div>
+		</div>
+		<div id="cred-container">
+					<div class="sep">
+		</div>
+			<div class="title">
+				<h2>Login</h2>
+			</div>
+			<div class="entryField">		
+		<form method="POST">
+				{%csrf_token %}
+				<input type="text" name="username" placeholder=Username>
+			</div>
+			<div class="entryField">		
+
+				<input type="password" name="password" placeholder="Password">
+			</div>
+			<button class="login-btn" type="submit">
+				Login
+			</button>
+		</form>
+
+		<div class="signin">
+			Don't have an account? <a href="{% url 'accounts:register' %}">Register</a><br><br>
+			{% for message in messages %}
+			<p style="color: red;">{{message}}</p>
+			{% endfor %}
+		</div>
+		</div>
+
+
+
+
+
+		
+	</div>
+</body>
+</html>
