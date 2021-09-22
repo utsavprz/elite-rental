@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width">
     <title>Services</title>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'services/services.css' %}"> 
+    <link rel="stylesheet" type="text/css" href="{% static 'services/servicesStyle.css' %}"> 
 
 
 </head>
@@ -56,16 +56,19 @@
        	<!-- row1 -->
        	<div class="row">
     <div class="card">
-    	<h3 class="img-text">Sedan</h3>
-    	<a href=""><img src="{% static 'services/Sedan.jpg' %}"></a>
+        
+            <h3 class="img-text">Sedan</h3>
+            <a href="{% url 'services:display' %}?category=1">
+                <img src="{% static 'services/Sedan.jpg' %}">
+            </a>
     </div>
     <div class="card">
     	<h3 class="img-text">SUV</h3>
-    	<a href=""><img src="{% static 'services/suv.jpg' %}"></a>
+    	<a href="{% url 'services:display' %}?category=2"><img src="{% static 'services/suv.jpg' %}"></a>
     </div>
     <div class="card">
     	<h3 class="img-text">4 Wheel</h3>
-    	<a href=""><img src="{% static 'services/4wheel.jpg' %}"></a>
+    	<a href="{% url 'services:display' %}?category=6"><img src="{% static 'services/4wheel.jpg' %}"></a>
     </div>
 </div>
 
@@ -73,21 +76,20 @@
        	<div class="row">
     <div class="card">
     	<h3 class="img-text">Electric</h3>
-    	<a href=""><img src="{% static 'services/electric.jpg' %}"></a>
+    	<a href="{% url 'services:display' %}?category=4"><img src="{% static 'services/electric.jpg' %}"></a>
     </div>
     <div class="card">
     	<h3 class="img-text">Pick-up</h3>
-    	<a href=""><img src="{% static 'services/pick-up.jpg' %}"></a>
+    	<a href="{% url 'services:display' %}?category=3"><img src="{% static 'services/pick-up.jpg' %}"></a>
     </div>
     <div class="card">
     	<h3 class="img-text">Vans</h3>
-    	<a href=""><img src="{% static 'services/van.jpg' %}"></a>
+    	<a href="{% url 'services:display' %}?category=5"><img src="{% static 'services/van.jpg' %}"></a>
     </div>
 </div>
     </section>
 
 
-?
     
 
 

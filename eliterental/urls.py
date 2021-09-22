@@ -18,6 +18,9 @@ from django.urls import path
 from django.urls.conf import include
 from django.conf.urls import handler404, handler500
 
+from django.conf.urls.static import static
+from django.conf import settings
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,7 +29,7 @@ urlpatterns = [
     path('faq/',include('faq.urls')),
     path('contact/',include('contact.urls')),
     path('about/',include('about.urls')),
-    path('services/',include('services.urls'))
-]
+    path('services/',include('services.urls')),
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 ="home.views.error_404"

@@ -15,4 +15,8 @@ class UserAddress(models.Model):
     postalcode = models.CharField(max_length=10)
     city = models.CharField(max_length=150)
     country = models.CharField(max_length=150, choices=country_choices, default='Nepal')
+    
+    def __str__(self):
+        return f'{self.user_info.id} -- {self.user_info.first_name} {self.user_info.last_name} -- {self.user_info.email}'
+    
 

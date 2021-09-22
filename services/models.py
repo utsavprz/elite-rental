@@ -4,6 +4,12 @@ from multiselectfield import MultiSelectField
 
 # Create your models here.
 
+class Category(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
 class vehicleInfo(models.Model):
     vehicle_category=(
     ("Sedan","Sedan"),
@@ -44,7 +50,8 @@ class vehicleInfo(models.Model):
     ("All Wheel drive","All Wheel drive"),
     ("Heated seats","Heated seats"),
     ("Bluetooth","Bluetooth"),
-    ("Apple CarPlay/Android Auto","Apple CarPlay/Android Auto"),
+    ("Apple CarPlay","Apple CarPlay"),
+    ("Android Auto","Android Auto"),
     ("Backup camera","Backup camera"),
     ("Cruise Control","Cruise Control"),
     ("Push-Button Start","Push-Button Start")
@@ -55,7 +62,7 @@ class vehicleInfo(models.Model):
     price = models.IntegerField()
     cc = models.CharField(max_length=150)
     year = models.CharField(max_length=150)
-    category = models.CharField(max_length=150, choices=vehicle_category, default='Sedan')
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     color = models.CharField(max_length=150)
     brand = models.CharField(max_length=150)
     transmission = models.CharField(max_length=150, choices=transmission_type, default='Manual')
@@ -63,11 +70,12 @@ class vehicleInfo(models.Model):
     bootCapacity = models.CharField(max_length=150)
     carFuel = models.CharField(max_length=150, choices=fuel_type, default='Petrol')
     availability = models.CharField(max_length=150, choices=bool, default='Yes')
-    features = MultiSelectField(choices=vehicle_feature, max_choices=9,max_length=150)
+    features = MultiSelectField(choices=vehicle_feature, max_choices=10,max_length=150)
     image = models.ImageField(upload_to="services/images")
     addedDate = models.DateField()
 
     def __str__(self):
-        return self.name
+        return f'{self.id} - {self.name} - (Available: {self.availability}) - (Category: {self.category})'
     
 
+    
