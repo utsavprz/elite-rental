@@ -83,12 +83,12 @@ body {
 
 #showcase{
     width: 100%;
-    min-height: 600px;
+    min-height: 200px;
 }
 
 .img-fluid{
     width: 100%;
-    height: 650px;
+    height: inherit;
     margin-top: -50px;
 }
 
@@ -98,6 +98,7 @@ body {
   margin-bottom: -20px;
   font-family:montserrat, sans-serif;
   font-weight:bolder;
+
 }
 
 
@@ -106,34 +107,36 @@ body {
 
 @media screen and (min-width: 1920px) {
     #showcase{
-        width: 100%;
-        min-height: 50px;
+      width: 100%;
+        min-height: 600px;
     }
-    #showcase img{
-        width: 100%;
-        height: 1050px;
-    }
+    .img-fluid{
+      width: 100%;
+      height: inherit;
+      margin-top: -50px;
+  }
 }
 
 .main-container{
-  background-color: white;
-  max-width: 80%;
-  min-height: 1200px;
+  width: 80%;
+  min-height: 100vh;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
 }
-
-.left-panel{
+.panel1{
   border-radius: inherit;
-  flex: 1;
+  flex-basis: 60%;
+}
+.panel2{
+  border-radius: inherit;
+  flex-basis: 40%;
 }
   .ft-container{
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-top: 15git px;
+    margin-top: 15px;
   }
 
   .ft{
@@ -153,16 +156,10 @@ body {
   }
 
 
-.right-panel{
-  flex: 1;
-  border-radius: inherit;
-  padding: 20px;
-}
-
   .book-form{
     background-color: #ffffff;
-    width: 80%;
-    margin: 0 auto;
+    width: 90%;
+    float: right;
     height: 1150px;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -220,8 +217,15 @@ body {
       font-size: 14px;
       padding-left: 10px;
     }
+
+    .form-entry.msg{
+      margin: 0;
+    }
     .form-entry:focus{
       background-color: #fafafa;
+      outline: none;
+      border: 0;
+      border: 1px solid rgb(180, 180, 180);
     }
     .date{
       color: #838383;
@@ -238,8 +242,15 @@ body {
       width: 100%;
       height: 1px;
       background-color: rgb(209, 207, 207);
-      margin: 20px 0 0 0;
+      margin: 20px 0 20px 0;
       border: 0;
+    }
+
+    .dash-hr{
+      width: 100%;
+      border-top: 1px dashed rgb(209, 207, 207);
+      border-bottom: 0;
+      margin: 20px 0 20px 0;
     }
     .sep{
       width: 70%;
@@ -269,6 +280,18 @@ body {
     }
     .btn.book{
       background-color: #05DAC0;
+      color: #ffffff;
+    }
+    .row.btn-p{
+      height: 45px;
+      width: 100%;
+      margin-top: 20px; 
+    }
+    .btn.post{
+      margin: 0;
+      width: 8em;
+      background-color: #05DAC0;
+      color: #ffffff;
     }
     .btn.book:hover{
       background-color: blue;
@@ -299,6 +322,93 @@ body {
       list-style-type: none;
     }
 
+
+  .review{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
+  .picture-panel{
+    flex:1;
+  }
+  .text-panel{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex:5;
+
+  }
+  .profile-pic{
+    background-color: #ffffff;
+    width: 70px;
+    height: 70px;
+    margin:0 auto;
+    border-radius: 100%;
+  }
+
+  .profile-pic img{
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+  }
+
+
+  .tp-n{
+    margin: 5px 0 0 0;
+  }
+  .tp-dt{
+    margin: 5px 0 0 0;
+    font-weight: 500;
+  }
+  .rv{
+    text-align: justify;
+    line-height: 2;
+    font-size: 13px;
+  }
+
+  .reviewForm-container{
+    width: 100%;
+    height: auto;
+
+  }
+
+  .form-label.forRV{
+    margin: 0;
+  }
+    .divided{
+      max-width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      min-height: 80px;
+      flex-direction: row;
+      padding-top: 10px;
+    }
+
+    .review-entry{
+      width: 83%;
+      height: 38px;
+      border-radius: 5px;
+      border: 1px solid #e3e6e6;
+      font-size: 14px;
+    }
+
+    .review-entry:focus{
+      outline: none;
+      background-color: #fafafa;
+      border: 0;
+      border: 1px solid rgb(180, 180, 180);
+    }
+    .i-f1{
+      flex: 1;
+
+    }
+    .i-f2{
+      flex: 1;
+
+    }
+
  
 
     @media screen and (max-width: 700px) {
@@ -307,11 +417,39 @@ body {
         margin-top: 50px;
       }
 
-      .right-panel{
+      .panel2{
         padding:0;
+        flex-basis: 100%;
       }
 
+      .panel1{
+        padding:0;
+        flex-basis: 100%;
+      }
+      header{
+        position: static;
+        background-color: rgb(12, 12, 12);
+      }
+      .img-fluid{
+        width: 100%;
+        height: inherit;
+        margin:0;
     }
+
+    .full-ft-container{
+      width: 100%;
+    }
+    .picture-panel{
+      flex-basis: 100%;
+    }
+
+    .name-dt{
+      text-align: center;
+    }
+    .rv{
+      text-align: justify;
+    }
+  }
 
 
 footer{
