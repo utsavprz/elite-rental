@@ -15,72 +15,88 @@ body {
     margin: 0;
     padding: 0;
   }
-  /*header*/
-  header {
-    position: static ;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #ffffff;
-    padding-top: 30px;
-    min-height: 70px;
-    z-index: 99999;
-  }
-  
-  header .link-href {
-    color: #ffffff;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 16px;
-    box-shadow: 0 6px 2px -10px aqua;
-  }
-  
-  header li {
-    float: left;
-    display: inline;
-    padding: 0 20px 0 20px;
+
+  .nav-bar{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 1);
   }
 
-  .link-href.active {
-    color: aqua;
-    box-shadow: 0 4px 2px -2px aqua;
-  }
+.nav-logo{
+      text-align: center;
+    }
 
-  .link-href:hover {
-    color: aqua;
-    transition: 0.6s;
-    box-shadow: 0 4px 2px -2px aqua;
-  }
-  
-  header #branding {
-    float: left;
-    margin-left: 5%;
-  }
-  
-  header #branding h1 {
-    font-size: 2em;
-    margin: 0;
-    font-style: italic;
-  }
-  
-  .highlight {
-    color: #5383d3;
-  }
-  
-  header nav {
-    float: right;
-    margin-right: 5%;
-    margin-top: 10px;
-  }
+    .nav-logo h1 {
+      font-size: 2.3em;
+      margin: 0;
+      font-style: italic;
+      color: #ffffff;
+      margin-left: 60px;
+    }
+    
+    .highlight {
+      color: #5383d3;
+    }
+    .nav-link{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 3;
 
-.heading{
-    width:50% ;
-    margin: 0 auto;
-    text-align: center;
-}
-.heading h1{
-  font-size: 2.3em;
-}
+    }
 
+    .p-f{
+      display: flex;
+      justify-content: end;
+      align-items: center;
+    }
+
+    .link-href {
+      color: #ffffff;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 16px;
+      box-shadow: 0 6px 2px -10px aqua;
+    }
+    
+    li {
+      float: left;
+      display: inline;
+      padding: 0 20px 0 20px;
+    }
+
+    .link-href.active {
+      color: aqua;
+      box-shadow: 0 4px 2px -2px aqua;
+    }
+
+    .link-href:hover {
+      color: aqua;
+      transition: 0.6s;
+      box-shadow: 0 4px 2px -2px aqua;
+    }
+
+
+    @media screen and (max-width: 700px) {
+
+      .nav-logo{
+        flex-basis: 100%;
+      }
+      .nav-link{
+        padding-top: 20px;
+        flex-basis: 100%;
+      }
+      .nav-logo h1 {
+        margin:0;
+      }
+      .p-f{
+        padding-top: 20px;
+        padding-bottom: 10px;
+        flex-basis: 100%;
+        justify-content: center;
+      }
+    }
 
 #headingSection{
   width: 100%;
