@@ -76,6 +76,58 @@ class vehicleInfo(models.Model):
 
     def __str__(self):
         return f'{self.id} - {self.name} - (Available: {self.availability}) - (Category: {self.category})'
-    
 
-    
+class vehicleReview(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.CharField(max_length=100)
+    message = models.TextField()
+    car_id = models.ForeignKey(vehicleInfo, on_delete=models.CASCADE)
+    timeStamp = models.DateTimeField(auto_now_add=True, blank=True)
+
+    def __str__(self):
+        return f'{self.name} - {self.car_id.name}'
+
+class bookInstantly(models.Model):
+    st=(
+    ("Processing","Processing"),
+    ("Booked","Booked"),
+    ("Cancelled","Cancelled"),
+    )
+
+    name = models.CharField(max_length=255)
+    email = models.CharField(max_length=100)
+    number = models.CharField(max_length=10)
+    pickAddress = models.CharField(max_length=255)
+    pickDate = models.DateField()
+    pickTime = models.TimeField()
+    dropAddress = models.CharField(max_length=255)
+    dropDate = models.DateField()
+    dropTime = models.TimeField()
+    status = models.CharField(max_length=150, choices=st, default='Processing')
+    car_id = models.ForeignKey(vehicleInfo, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE) 
+
+    def __str__(self):
+        return f'{self.name} - {self.number} - {self.status} - {self.car_id.name} - {self.car_id.availability}'
+
+class callBack(models.Model):
+    st=(
+    ("Not Called","Not Called"),
+    ("Called","Called"),
+    )
+
+    name = models.CharField(max_length=255)
+    email = models.CharField(max_length=100)
+    number = models.CharField(max_length=10)
+    pickAddress = models.CharField(max_length=255)
+    pickDate = models.DateField()
+    pickTime = models.TimeField()
+    dropAddress = models.CharField(max_length=255)
+    dropDate = models.DateField()
+    dropTime = models.TimeField()
+    status = models.CharField(max_length=150, choices=st, default='Processing')
+    car_id = models.ForeignKey(vehicleInfo, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE) 
+
+    def __str__(self):
+        return f'{self.name} - {self.number} - {self.status} - {self.car_id.name} - {self.car_id.availability}'

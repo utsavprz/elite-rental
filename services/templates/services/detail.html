@@ -33,7 +33,7 @@
         <div class="p-f">
             <div>
             {% if user.is_authenticated %}
-                <li style="margin-right: -20px;"><a class="img-hover link-href"   href="{% url 'accounts:profile' %}"><img src="{% static 'home/user-24.png' %}"></a></li>
+                <li><a class="img-hover link-href"   href="{% url 'accounts:profile' %}"><img src="{% static 'home/user-24.png' %}"></a></li>
                 <li><a class="img-hover link-href" href="{% url 'accounts:logout' %}"><img src="{% static 'home/logout-24.png' %}"></a></li>
             {% else %}
                 <li style="color:yellow;"><a href="{% url 'accounts:loginPage' %}">Login</a></li>
@@ -77,28 +77,30 @@
             <div class="s-ft">✔ {{feature}}</div>
             {% endfor %}
         </div>   
-
-
-        <!-- need loop -->
         <hr class="large-sep">
         <h5 class="sub-title">Reviews</h5>
-        <div class="review">
-            <div class="picture-panel">
-                <div class="profile-pic">
-                    <img src="{% static 'services/rv-img.png' %}" alt="">
+
+        <!-- need loop -->
+        {% for uR in review_car %}
+            
+            <div class="review">
+                <div class="picture-panel">
+                    <div class="profile-pic">
+                        <img src="{% static 'services/rv-img.png' %}" alt="">
+                    </div>
+                </div>
+                <div class="text-panel">
+                    <div class="name-dt">
+                        <h4 class="tp-n">{{uR.name}}</h4>
+                        <h5 class="tp-dt">{{uR.timeStamp}}</h5>
+                    </div>
+                    <div class="rv">
+                        <p>{{uR.message}}</p>
+                    </div>
                 </div>
             </div>
-            <div class="text-panel">
-                <div class="name-dt">
-                    <h4 class="tp-n">Full Name</h4>
-                    <h5 class="tp-dt">January 23, 2017 at 7:01 am</h5>
-                </div>
-                <div class="rv">
-                    <p>Statement buttons cover-up tweaks patch pockets perennial lapel collar flap chest pockets topline stitching cropped jacket. Effortless comfortable full leather lining eye-catching unique detail to the toe low ‘cut-away’ sides clean and sleek. Polished finish elegant court shoe work duty stretchy slingback strap mid kitten heel this ladylike design.</p>
-                </div>
-            </div>
-        </div>
-        <hr class="dash-hr">
+            <hr class="dash-hr">
+        {% endfor %}
         <!-- end loop -->
 
 
@@ -106,6 +108,8 @@
         <div class="reviewForm-container">
     
             <h5 class="form-label forRV">Message</h5>
+            <form method="POST" action="/services/detail/{{car_pk.id}}">
+                {% csrf_token %}
             <textarea class="form-entry msg" type="message" name="message"></textarea>
             <div class="divided">
                 <div class="i-f1">
@@ -117,9 +121,10 @@
                     <input class="review-entry" type="email" name="email">
                 </div>
                 <div class="row btn-p">
-                    <button class="btn post" type="submit">Post Review</button>
+                    <button class="btn post" name="SendReview"> Post Review</button>
                 </div>
             </div>
+        </form>  
 
 
             
@@ -136,53 +141,56 @@
             <h1> <span>Rs</span>{{car_pk.price}}</h1>
                     <h5 class="d-f">Per Day</h5>
         </div>
-        
-        <div class="column">
-            <div class="row">
-                <h5 class="form-label">Full Name</h5>
-                <input class="form-entry" type="text" name="fullname" placeholder="Emily Clarke">
-            </div>
-            <div class="row">
-                <h5 class="form-label">Email Address</h5>
-                <input class="form-entry" type="email" name="email" placeholder="example@email.com">
-            </div>
-            <div class="row">
-                <h5 class="form-label">Phone Number</h5>
-                <input class="form-entry" type="text" name="phone" placeholder="9841000000">
-            </div>
-            <div class="row">
-                <h5 class="form-label">Pickup Address</h5>
-                <input class="form-entry date" type="text" name="pickupAddress" placeholder="Kamalbinayak, Bhaktapur">
-            </div>
-            <div class="row">
-                <h5 class="form-label">Pickup Date</h5>
-                <input class="form-entry date" type="date" name="pickupDate">
-            </div>
-            <div class="row">
-                <h5 class="form-label">Pickup Time</h5>
-                <input class="form-entry" type="time" name=pickupTime">
-            </div>
-            <div class="row">
-                <h5 class="form-label">Drop Off Address</h5>
-                <input class="form-entry" type="text" name="dropAddress" placeholder="Softwarica College, Dillibazar">
-            </div>
-            <div class="row">
-                <h5 class="form-label">Drop Off Date</h5>
-                <input class="form-entry" type="date" name="dropDate">
-            </div>
-            <div class="row">
-                <h5 class="form-label">Drop Off Time</h5>
-                <input class="form-entry" type="time" name="dropTime">
-            </div>
-            <div class="row btn-c">
-                <button class="btn" type="submit">Request Callback</button>
-            </div>
-            <hr class="sep">
-            <div class="row btn-c">
-                <button class="btn book" type="submit">Book Instantly</button>
-            </div>
-
-        </div>  
+        <form method="POST" action="/services/detail/{{car_pk.id}}">
+            {% csrf_token %}
+            <div class="column">
+    
+                <div class="row">
+                    <h5 class="form-label">Full Name</h5>
+                    <input class="form-entry" type="text" name="name" placeholder="Emily Clarke">
+                </div>
+                <div class="row">
+                    <h5 class="form-label">Email Address</h5>
+                    <input class="form-entry" type="email" name="email" placeholder="example@email.com">
+                </div>
+                <div class="row">
+                    <h5 class="form-label">Phone Number</h5>
+                    <input class="form-entry" type="text" name="phone" placeholder="9841000000">
+                </div>
+                <div class="row">
+                    <h5 class="form-label">Pickup Address</h5>
+                    <input class="form-entry date" type="text" name="pickupAddress" placeholder="Kamalbinayak, Bhaktapur">
+                </div>
+                <div class="row">
+                    <h5 class="form-label">Pickup Date</h5>
+                    <input class="form-entry date" type="date" name="pickupDate">
+                </div>
+                <div class="row">
+                    <h5 class="form-label">Pickup Time</h5>
+                    <input class="form-entry" type="time" name="pickupTime">
+                </div>
+                <div class="row">
+                    <h5 class="form-label">Drop Off Address</h5>
+                    <input class="form-entry" type="text" name="dropAddress" placeholder="Softwarica College, Dillibazar">
+                </div>
+                <div class="row">
+                    <h5 class="form-label">Drop Off Date</h5>
+                    <input class="form-entry" type="date" name="dropDate">
+                </div>
+                <div class="row">
+                    <h5 class="form-label">Drop Off Time</h5>
+                    <input class="form-entry" type="time" name="dropTime">
+                </div>
+                <div class="row btn-c">
+                    <button class="btn" type="submit" name="Callback">Request Callback</button>
+                </div>
+                <hr class="sep">
+                <div class="row btn-c">
+                    <button class="btn book" type="submit" name="BookInstantly">Book Instantly</button>
+                </div>
+            
+            </div>  
+        </form>
     </div>
     
     </div>

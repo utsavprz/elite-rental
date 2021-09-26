@@ -33,7 +33,7 @@
         <div class="p-f">
             <div>
             {% if user.is_authenticated %}
-                <li style="margin-right: -20px;"><a class="img-hover link-href"   href="{% url 'accounts:profile' %}"><img src="{% static 'home/user-24.png' %}"></a></li>
+                <li><a class="img-hover link-href"   href="{% url 'accounts:profile' %}"><img src="{% static 'home/user-24.png' %}"></a></li>
                 <li><a class="img-hover link-href" href="{% url 'accounts:logout' %}"><img src="{% static 'home/logout-24.png' %}"></a></li>
             {% else %}
                 <li style="color:yellow;"><a href="{% url 'accounts:loginPage' %}">Login</a></li>
@@ -107,11 +107,6 @@
 
     </section>
 
-    
-    <!-- <h3 class="info-text">{{info.brand}} {{info.name}}</h3>
-    <h5 class="info-unit">Rs</h5>
-    <h1 class="info-price">{{info.price}}</h1>
-    <h5 class="info-perday">Per Day</h5> -->
     
 
 
