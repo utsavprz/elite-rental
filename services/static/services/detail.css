@@ -1,5 +1,6 @@
 body {
-    font: 15px/1.5 Montserrat;
+    font-size: 16px;
+    font-family: Montserrat, Verdana, Geneva, Tahoma, sans-serif;
     margin: 0;
     padding: 0;
   }
@@ -128,6 +129,8 @@ body {
 .panel2{
   border-radius: inherit;
   flex-basis: 40%;
+  margin-bottom: 50px;
+  margin-top: 20px;
 }
   .ft-container{
     width: 100%;
@@ -409,6 +412,9 @@ body {
  
 
     @media screen and (max-width: 700px) {
+      body{
+        font-size: 12px;
+      }
       .book-form{
         width: 100%;
         margin-top: 50px;
@@ -417,6 +423,7 @@ body {
       .panel2{
         padding:0;
         flex-basis: 100%;
+        
       }
 
       .panel1{

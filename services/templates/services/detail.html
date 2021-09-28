@@ -33,6 +33,7 @@
         <div class="p-f">
             <div>
             {% if user.is_authenticated %}
+                <li><a class="link-href" href="{% url 'services:booking' %}">Booking</a></li>
                 <li><a class="img-hover link-href"   href="{% url 'accounts:profile' %}"><img src="{% static 'home/user-24.png' %}"></a></li>
                 <li><a class="img-hover link-href" href="{% url 'accounts:logout' %}"><img src="{% static 'home/logout-24.png' %}"></a></li>
             {% else %}
@@ -46,7 +47,7 @@
 
     <section id="showcase">
         <div class="container">
-            <img src="{{car_pk.image.url}}" class="img-fluid">
+            <img src="{{car_pk.vehicleImage.url}}" class="img-fluid">
         </div>
     </section>
 
@@ -54,7 +55,7 @@
 <div class="main-container">
     <div class="panel1">
         <h1 class="title">{{car_pk.brand}} {{car_pk.name}}</h1>
-        <h6>4 Reviews</h6>
+        <h6>{{review_count}} Reviews</h6>
         <hr class="dash-hr">  
         <div class="ft-container">
             <div class="ft">
@@ -141,7 +142,7 @@
             <h1> <span>Rs</span>{{car_pk.price}}</h1>
                     <h5 class="d-f">Per Day</h5>
         </div>
-        <form method="POST" action="/services/detail/{{car_pk.id}}">
+        <form method="POST">
             {% csrf_token %}
             <div class="column">
     
@@ -181,13 +182,24 @@
                     <h5 class="form-label">Drop Off Time</h5>
                     <input class="form-entry" type="time" name="dropTime">
                 </div>
-                <div class="row btn-c">
-                    <button class="btn" type="submit" name="Callback">Request Callback</button>
-                </div>
-                <hr class="sep">
-                <div class="row btn-c">
-                    <button class="btn book" type="submit" name="BookInstantly">Book Instantly</button>
-                </div>
+                {% if user.is_authenticated %}
+                    <div class="row btn-c">
+                        <button class="btn" type="submit" name="Callback">Request Callback</button>
+                    </div>
+                    <hr class="sep">
+                    <div class="row btn-c">
+                        <button class="btn book" type="submit" name="BookInstantly">Book Instantly</button>
+                    </div>
+                {% else %}
+                    <div class="row btn-c">
+                        <button class="btn" type="submit" name="Callback" disabled>Request Callback</button>
+                    </div>
+                    <hr class="sep">
+                    <div class="row btn-c">
+                        <button class="btn book" type="submit" name="BookInstantly" disabled>Book Instantly</button>
+                    </div>
+                    <h4 style="color: red; margin-top: 7px; font-weight: 600;">*Please Login to rent vehicle</h4><br>
+                {% endif %}
             
             </div>  
         </form>

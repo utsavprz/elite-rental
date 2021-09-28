@@ -1,5 +1,6 @@
 body {
-  font: 15px/1.5 Montserrat;
+  font-size: 16px;
+  font-family: Montserrat, Verdana, Geneva, Tahoma, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #ffffff;
@@ -432,6 +433,9 @@ ul {
     padding: 20px 10px 30px 10px;
   }
 
+  body {
+    font-size: 12px;
+  }
 }
 
 

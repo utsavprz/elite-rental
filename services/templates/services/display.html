@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width">
     <title>Services</title>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'services/display.css' %}"> 
+    <link rel="stylesheet" type="text/css" href="{% static 'services/displayStyle.css' %}"> 
 
 
 </head>
@@ -33,6 +33,7 @@
         <div class="p-f">
             <div>
             {% if user.is_authenticated %}
+                <li><a class="link-href" href="{% url 'services:booking' %}">Booking</a></li>
                 <li><a class="img-hover link-href"   href="{% url 'accounts:profile' %}"><img src="{% static 'home/user-24.png' %}"></a></li>
                 <li><a class="img-hover link-href" href="{% url 'accounts:logout' %}"><img src="{% static 'home/logout-24.png' %}"></a></li>
             {% else %}
@@ -59,7 +60,7 @@
             <div class="row">  
                 <div class="card">
                     <a href="/services/detail/{{info.id}}?{{info.brand}}{{info.name}}">
-                        <img src={{info.image.url}}>
+                        <img src={{info.vehicleImage.url}}>
                     </a>
                 </div>
                 
@@ -94,8 +95,7 @@
                     </div>
                 </div> 
                 <div class="right-wrapper">
-                    <div class="info-unit">Rs</div>
-                    <div class="info-price">{{info.price}}</div>
+                    <div class="info-price"><span style="font-size: 16px;">Rs</span>{{info.price}}</div>
                     <div class="info-perday">Per Day</div>
                     <a href="/services/detail/{{info.id}}?{{info.brand}}{{info.name}}"><button class="detail-btn">Detail</button></a>
                 </div>

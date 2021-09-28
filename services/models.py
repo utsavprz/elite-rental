@@ -1,5 +1,7 @@
 from django.db import models
+from django.db.models import F, Q, When
 from django.conf import settings
+from django.db.models.fields import DateTimeField
 from multiselectfield import MultiSelectField
 
 # Create your models here.
@@ -71,9 +73,10 @@ class vehicleInfo(models.Model):
     carFuel = models.CharField(max_length=150, choices=fuel_type, default='Petrol')
     availability = models.CharField(max_length=150, choices=bool, default='Yes')
     features = MultiSelectField(choices=vehicle_feature, max_choices=10,max_length=150)
-    image = models.ImageField(upload_to="services/images")
+    vehicleImage = models.ImageField(upload_to="services/images")
     addedDate = models.DateField()
 
+    
     def __str__(self):
         return f'{self.id} - {self.name} - (Available: {self.availability}) - (Category: {self.category})'
 
@@ -92,6 +95,7 @@ class bookInstantly(models.Model):
     ("Processing","Processing"),
     ("Booked","Booked"),
     ("Cancelled","Cancelled"),
+    ("Done","Done"),
     )
 
     name = models.CharField(max_length=255)
@@ -108,7 +112,17 @@ class bookInstantly(models.Model):
     user_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE) 
 
     def __str__(self):
-        return f'{self.name} - {self.number} - {self.status} - {self.car_id.name} - {self.car_id.availability}'
+        return f'{self.user_id} - {self.number} - {self.status} - {self.car_id.name} - {self.car_id.availability}'
+
+    @property
+    def is_done(self):
+        bookInstantly.objects.filter(DateTimeField.now > self.dropDate).update(status="Done")
+
+    def is_available(self):
+        if self.status == "Done":
+            vehicleInfo.objects.get(id = self.car_id).update(availability = "Yes")
+            print("availability changed to Yes")
+        
 
 class callBack(models.Model):
     st=(
@@ -129,5 +143,24 @@ class callBack(models.Model):
     car_id = models.ForeignKey(vehicleInfo, on_delete=models.CASCADE)
     user_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE) 
 
+    booked_vehicles = bookInstantly.objects.filter(status = "Booked")
+    v_info = vehicleInfo.objects.all()
+
+    
+
     def __str__(self):
         return f'{self.name} - {self.number} - {self.status} - {self.car_id.name} - {self.car_id.availability}'
+
+class paymentGateway(models.Model):
+    st=(
+    ("Paid","Paid"),
+    ("Unpaid","Unpaid"),
+    )
+    status = models.CharField(max_length=150, choices=st, default='Unpaid')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE) 
+    car = models.ForeignKey(vehicleInfo, on_delete=models.CASCADE)
+    book = models.ForeignKey(bookInstantly, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'(Booking ID - {self.book.id}) - {self.user} - {self.car.name} - {self.car.availability} - {self.status} - {self.book.status} '
+    
