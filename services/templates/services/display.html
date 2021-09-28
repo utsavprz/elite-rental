@@ -79,12 +79,21 @@
                         <h6>{{info.carFuel}}</h6>
                         <h6 class="bring-left">{{info.transmission}}</h6>
 
+                    </div>                
                     </div>
-                    <div class="ava-wrapper">
+
+                    <div class="right-wrapper">
+                        <div class="info-price"><span style="font-size: 16px;">Rs</span>{{info.price}}</div>
+                        <div class="info-perday">Per Day</div>
+                    </div>
+            </div>
+                    <div class="lower-pane">
+                        <div class="ava-wrapper">
                         <h4>Available:
                             {% if info.availability == "Yes" %}
                                 <div class="img-wrp">
                                     <img class = "yesImg" src ="{% static 'services/yes.png' %}">
+                                </div>
                             {% else %}
                                 <div class="img-wrp">
                                     <img class = "yesImg" src ="{% static 'services/no.png' %}">
@@ -93,16 +102,11 @@
 
                         </h4>
                     </div>
-                </div> 
-                <div class="right-wrapper">
-                    <div class="info-price"><span style="font-size: 16px;">Rs</span>{{info.price}}</div>
-                    <div class="info-perday">Per Day</div>
                     <a href="/services/detail/{{info.id}}?{{info.brand}}{{info.name}}"><button class="detail-btn">Detail</button></a>
                 </div>
+                    
                 
-            </div>
         {% endfor %}
-
         </div>
 
     </section>

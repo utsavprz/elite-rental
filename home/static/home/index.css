@@ -1,9 +1,12 @@
+
+
 body {
   font-size: 16px;
   font-family: Montserrat, Verdana, Geneva, Tahoma, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #ffffff;
+
 }
 
 .container {
@@ -93,7 +96,7 @@ ul {
 
 .sep {
   height: 6px;
-  background-color: #f9735b;
+  background-color: red;
   border: 0;
   width: 5em;
   margin-bottom: 30px;
@@ -199,7 +202,7 @@ ul {
 }
 
 #showcase img {
-  margin-top: -100px;
+  margin-top: -160px;
   width: 100%;
   min-height: 740px;
 }
@@ -214,7 +217,7 @@ ul {
 }
 
 .slide-right {
-  top: 75%;
+  top: 70%;
   position: absolute;
   width: 100%;
   overflow: hidden;
@@ -226,7 +229,8 @@ ul {
   animation: 2s slide-right 1s forwards;
     transform:translateX(-100%);
     font-size: 4vw;
-    font-family: arial black;
+    font-family: arial;
+    font-weight: 900;
 }
 
 @keyframes slide-right {
@@ -353,7 +357,7 @@ ul {
 }
 
 .input-field {
-  width: 20%;
+  width: 20em;
   height: 35px;
   padding-left: 10px;
   border-color: rgba(0, 0, 0, 0.1);
@@ -385,7 +389,7 @@ ul {
   transition: 0.5s;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1025px) {
 
   .nav-logo{
     flex-basis: 100%;
@@ -411,19 +415,20 @@ ul {
   }
 
   #showcase img {
-    min-height: 300px;
+    min-height: 200px;
     margin: 0;
   }
 
   .slide-right {
-    left: 40px;
+    left: 20px;
+    top: 75%;
   }
   #info1 {
     padding: 0;
   }
   .card{
     width: 90%;
-    margin: 10px 0 0 9px;
+    margin: 20px auto;
   }
   .slide-right h2 {
     font-size: 5vw;
@@ -435,6 +440,25 @@ ul {
 
   body {
     font-size: 12px;
+  }
+  .title{
+    font-size: 21px;
+  }
+  #info3{
+    padding: 0;
+  }
+  .card-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0;
+  }
+
+  .info3-card{
+    flex-basis: 90%;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin: 20px auto;
   }
 }
 
