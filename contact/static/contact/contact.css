@@ -1,5 +1,6 @@
 body {
-    font: 15px/1.5 Montserrat;
+    font-size: 16px;
+    font-family: Montserrat, Verdana, Geneva, Tahoma, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #ffffff;
@@ -15,76 +16,94 @@ body {
     margin: 0;
     padding: 0;
   }
-  /*header*/
-  header {
-    position: fixed;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #ffffff;
-    padding-top: 30px;
-    min-height: 70px;
-    z-index: 99999;
-  }
-  
-  header a {
-    color: #ffffff;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 16px;
-    box-shadow: 0 6px 2px -10px aqua;
-  }
-  
-  header li {
-    float: left;
-    display: inline;
-    padding: 0 20px 0 20px;
-  }
-  a.active {
-    color: aqua;
-    box-shadow: 0 4px 2px -2px aqua;
-  }
-  a:hover {
-    color: aqua;
-    transition: 0.6s;
-    box-shadow: 0 4px 2px -2px aqua;
-  }
-  
-  header #branding {
-    float: left;
-    margin-left: 5%;
-  }
-  
-  header #branding h1 {
-    font-size: 2em;
-    margin: 0;
-    font-style: italic;
-  }
-  
-  .highlight {
-    color: #5383d3;
-  }
-  
-  header nav {
-    float: right;
-    margin-right: 5%;
-    margin-top: 10px;
+
+  .nav-bar{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 1);
   }
 
-.heading{
-    width:50% ;
-    margin: 0 auto;
-    text-align: center;
-}
-.heading h1{
-  font-size: 2.3em;
-}
+.nav-logo{
+      text-align: center;
+    }
 
+    .nav-logo h1 {
+      font-size: 2.3em;
+      margin: 0;
+      font-style: italic;
+      color: #ffffff;
+      margin-left: 50px;
+    }
+    
+    .highlight {
+      color: #5383d3;
+    }
+    .nav-link{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 3;
+    }
 
+    .nav-link ul{
+      margin-left: -90px;
+    }
+
+    .p-f{
+      display: flex;
+      justify-content: end;
+      align-items: center;
+    }
+
+    .link-href {
+      color: #ffffff;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 16px;
+      box-shadow: 0 6px 2px -10px aqua;
+    }
+    
+    li {
+      display: inline;
+      margin-right: 30px;
+    }
+
+    .link-href.active {
+      color: aqua;
+      box-shadow: 0 4px 2px -2px aqua;
+    }
+
+    .link-href:hover {
+      color: aqua;
+      transition: 0.6s;
+      box-shadow: 0 4px 2px -2px aqua;
+    }
+
+  
+
+    .link-href:hover {
+      color: aqua;
+      transition: 0.6s;
+      box-shadow: 0 4px 2px -2px aqua;
+    }
+
+    .entryfield{
+      width: 50%;
+      text-align: left;
+      margin: 0 auto;
+      font-size: 12px;
+      margin-top: 30px;
+    }
+
+    
 #showcase{
 	min-height: 400px;
 	background: url('contact.jpg') no-repeat 0;
 	background-size: cover;
 }
+
+
 
 #contactbox{
 	width: 100%;
@@ -103,12 +122,12 @@ body {
 	height: 6px;
 	background-color: red;
 	border: 0;
-	width: 4%;
+	width: 5em;
 
 }
 
 .img-container{
-	width: 30%;
+	width: 40%;
 	margin: 30px auto;
 }
 
@@ -119,18 +138,12 @@ body {
 }
 
 
-.entryfield{
-	width: 50%;
-	text-align: left;
-	margin: 0 auto;
-	font-size: 12px;
-	margin-top: 30px;
-}
+
 
 
 .input-field{
 	border-radius: 5px;
-	width: 100%;
+	width: 96%;
 	height: 35px;
 	border-color: rgba(0, 0, 0, 0.2);
 	padding-left: 10px;
@@ -145,7 +158,7 @@ body {
 
 .msg-field{
 	border-radius: 5px;
-	width: 100%;
+	width: 96%;
 	height: 200px;
 	border-color: rgba(0, 0, 0, 0.2);
 	padding-left: 10px;
@@ -175,6 +188,43 @@ body {
   box-shadow: 0 1em 1em -0.4em grey;
   transform: translateY(-0.25em);
   transition: 0.3s;
+}
+
+@media screen and (max-width: 700px) {
+
+  .nav-logo{
+    flex-basis: 100%;
+  }
+  .nav-link{
+    padding-top: 20px;
+    flex-basis: 100%;
+  }
+  .nav-logo h1 {
+    margin:0;
+  }
+  .p-f{
+    padding-top: 20px;
+    padding-bottom: 10px;
+    flex-basis: 100%;
+    justify-content: center;
+  }
+  .nav-link ul{
+    margin-left: 0;
+  }
+  li {
+    margin-right: 10px;
+  }
+  .entryfield{
+    width: 90%;
+  }
+
+  #showcase{
+    min-height: 200px;
+  }
+  body {
+    font-size: 12px;
+  }
+
 }
 
 footer{

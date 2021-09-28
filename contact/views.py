@@ -22,7 +22,7 @@ def contact_index(request):
 
     return render(request,'contact/contact.htm')
 
-def success(self,request): 
+def success(request): 
     return render(request, "contact/success.htm")
 
 

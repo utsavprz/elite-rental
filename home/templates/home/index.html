@@ -4,50 +4,51 @@
 <head>
 	
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="{%static 'home/home_index.css'%}">
+	<link rel="stylesheet" type="text/css" href="{%static 'home/index.css'%}">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Home</title>
 	
 </head>
 <body>
-	<header>
-		<div class="container">
-			<div id="branding">
-				<h1>
-					<span class="highlight">Elite</span>Rental
-				</h1>
-			</div>
-			<nav>
+	<div class="nav-bar">
+        <div class="nav-logo">
+            <h1>
+            <span class="highlight">Elite</span>Rental
+        </h1></div>
+        <div class="nav-link">
+            
+            <nav>
 				<ul>
-					<li><a class="active" href="">Home</a></li>
-					<li><a href="{% url 'services:index' %}">Services</a></li>
-					<li><a href="{% url 'about:about_index' %}">About</a></li>
-					<li><a href="{% url 'contact:contact_index' %}">Contact</a></li>
-					<li><a href="{% url 'faq:faq_index' %}">FAQ</a></li>
-					<li class="link-sep">|</li>
-
-					<span>
-						{% if user.is_authenticated %}
-							<li style="margin-right: -20px;"><a class="img-hover" href="{% url 'accounts:profile' %}"><img src="{% static 'home/user-24.png' %}"></a></li>
-							<li style="color: yellow;"><a class="img-hover" href="{% url 'accounts:logout' %}"><img src="{% static 'home/logout-24.png' %}"></a></li>
-						{% else %}
-						<li><a style="color: #5383D3; font-weight: bold ;" href="{% url 'accounts:loginPage' %}">Login</a></li>
-						{% endif %}
-					</span>
+					<li><a class="active link-href" href="{% url 'home:index' %}">Home</a></li>
+					<li><a class="link-href" href="{% url 'services:index' %}">Cars</a></li>
+					<li><a class="link-href" href="{% url 'about:about_index' %}">About</a></li>
+					<li><a class="link-href" href="{% url 'contact:contact_index' %}">Contact</a></li>
+					<li><a class="link-href" href="{% url 'faq:faq_index' %}">FAQ</a></li>
 				</ul>
 			</nav>
-		</div>
-	</header>
+        </div>
 
+        <div class="p-f">
+            <div>
+            {% if user.is_authenticated %}
+				<li><a class="link-href" href="{% url 'services:booking' %}">Booking</a></li>
+                <li><a class="img-hover link-href"   href="{% url 'accounts:profile' %}"><img src="{% static 'home/user-24.png' %}"></a></li>
+                <li><a class="img-hover link-href" href="{% url 'accounts:logout' %}"><img src="{% static 'home/logout-24.png' %}"></a></li>
+            {% else %}
+                <li style="color:yellow;"><a href="{% url 'accounts:loginPage' %}">Login</a></li>
+            {% endif %}
+            </div>
+        </div>
+    </div>
 	<section id="showcase">
 		<div class="container">
 			<div class="slide-right">
 				<h2>
-				RENT THE NEW <span >NEXON EV</span> 
+				RENT THE NEW <span style="color: #fc3434;">Civic TypeR</span> 
 				</h2>
 			</div>
-			<img src="{% static 'home/nexon-2.jpg' %}">
+			<img src="{% static 'home/civic.jpg' %}">
 		</div>
 	</section>
 
