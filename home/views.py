@@ -16,13 +16,13 @@ def index(request):
         print("Newsletter subbed")
     
     exists = ""
+    if request.user.is_authenticated:
+        if_exists= newsletter.objects.filter(user_id = current_user).count()
 
-    if_exists= newsletter.objects.filter(user_id = current_user).count()
-
-    if if_exists == 1:
-        exists = "Yes"
-    else:
-        exists ="No"
+        if if_exists == 1:
+            exists = "Yes"
+        else:
+            exists ="No"
     
 
     context={
