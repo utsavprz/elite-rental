@@ -11,6 +11,34 @@ from .models import paymentGateway
 admin.site.register(vehicleInfo)
 admin.site.register(Category)
 admin.site.register(vehicleReview)
-admin.site.register(bookInstantly)
-admin.site.register(callBack)
-admin.site.register(paymentGateway)
+
+class listBook(admin.ModelAdmin):
+    list_display= ('id','user_id', 'car_id', 'number','pickAddress','pickDate','pickTime','dropAddress','dropDate','dropTime','status')
+    
+
+    list_filter = [
+         "pickDate",
+         "status"
+    ]
+
+    def has_add_permission(self, request):
+        return False
+
+admin.site.register(bookInstantly,listBook)
+
+class listcallback(admin.ModelAdmin):
+    list_display= ('id','user_id', 'car_id', 'number','pickAddress','pickDate','pickTime','dropAddress','dropDate','dropTime','status')
+admin.site.register(callBack,listcallback)
+
+
+class listPay(admin.ModelAdmin):
+    list_display= ('id', 'user', 'car', 'book','status')
+
+    list_filter = [
+         "status"
+    ]
+
+    def has_add_permission(self, request):
+        return False
+
+admin.site.register(paymentGateway,listPay)

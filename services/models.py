@@ -78,7 +78,7 @@ class vehicleInfo(models.Model):
 
     
     def __str__(self):
-        return f'{self.id} - {self.name} - (Available: {self.availability}) - (Category: {self.category})'
+        return f'{self.name} - (Available: {self.availability})'
 
 class vehicleReview(models.Model):
     name = models.CharField(max_length=255)
@@ -112,7 +112,7 @@ class bookInstantly(models.Model):
     user_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE) 
 
     def __str__(self):
-        return f'{self.user_id} - {self.number} - {self.status} - {self.car_id.name} - {self.car_id.availability}'
+        return f'{self.id} - {self.status}'
 
     @property
     def is_done(self):

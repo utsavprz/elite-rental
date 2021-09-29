@@ -41,16 +41,18 @@
             </div>
         </div>
     </div>
-	<section id="showcase">
-		<div class="container">
-			<div class="slide-right">
-				<h2>
-				RENT THE NEW <span style="color: #fc3434;">Civic TypeR</span> 
-				</h2>
+	<div class="main-container">
+		
+		<div class="box bounce-in-top">
+			<p class="heading wobble-hor-bottom">NEED A RIDE? </p>
+			<p class="subheading wobble-hor-bottom">YOU'VE COME TO THE RIGHT PLACE.</p>
+			<hr class="sep wobble-hor-bottom">
+			<div class="btn-container">
+				<a href="{% url 'services:index' %}"><button class="btn wobble-hor-bottom">Our Cars</button></a>
+				<a href="{% url 'about:about_index' %}"><button class="btn wobble-hor-bottom">About Us</button></a>
 			</div>
-			<img src="{% static 'home/civic.jpg' %}">
 		</div>
-	</section>
+	</div>
 
 	<section id="info1">
 		<div class="container">
@@ -60,8 +62,8 @@
 			<div class="card-container">
 				<div class="card" style="background-color: #FCB401;">
 					<img src="{% static 'home/PngItem_2102230.png' %}">
-					<h3>Varities of Vehicles</h3>
-					<p>Lorem ipsum dolor sit amet, consectadipiscing elit. Aenean commodo ligula eget dolor.</p>
+					<h3>Varieties of Vehicles</h3>
+					<p>We provide varieties of car from low prices to high prices</p>
 				</div>
 				<div class="card" style="background-color: #212181;">
 					<img src="{% static 'home/lipart.png' %}">
@@ -129,10 +131,17 @@
 		<div class="container">
 		<h2 class="title">Join Our Newsletter</h2>
 		<hr class="sep">
-		<form>
-			<input class="input-field" type="email" placeholder="Email Address">
+		<form method="POST" action="{% url 'home:index' %}">
+			{% csrf_token %}
+				<input class="input-field" type="email" name ="email" value={{current_user.email}}>
+				<br>
+			{% if exists == "Yes" %}
+				<button style="background-color: grey; width: 15em;" type="submit" class="join-btn" disabled>Newsletter Subscribed</button>
+			{% else %}
+				<button type="submit" class="join-btn">Join</button>
+			{% endif %}
+
 		</form>
-		<button type="submit" class="join-btn">Join</button>
 	</div>
 	</section>
 
