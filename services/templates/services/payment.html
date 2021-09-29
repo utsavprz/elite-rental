@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Payment</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'services/paymentStyle.css' %}"> 
+
+
+</head>
+<body>
+    <div class="card">
+        <div class="upper-pane">
+            <div class="left">
+                <div class="row -c">
+                    <h2>Booking Payment Detail</h2>
+                </div>
+                <div class="row">
+                    <h3 class="info">Username: {{current_user}}</h3>
+                </div>
+                <div class="row">
+                    <h3 class="info">Booking ID: {{payment_info.book_id}}</h3>
+                </div>
+                <div class="row">
+                    {% for i in info %}
+                        {% if payment_info.car_id == i.id %}
+                            <h3 class="info">Vehicle Name: {{i.name}}</h3>
+                        {% endif %}
+                    {% endfor %} 
+                </div>
+                <div class="row">
+                    <h3 class="info">Status: {{payment_info.status}}</h3>
+                </div>
+            </div>
+            <div class="right">
+                <img class="QR" src="{% static 'services/paymentQR.jpg' %}">
+            </div>
+            
+        </div>
+    </div>
+    <div class="lower-pane">
+        <p>*Please use scan pay for payment. Enter the booking payment detail in the remarks during payment</p>
+        <p>*The payment gets confirmed within the day of payment itself, please look into your booking history to check status of booking</p>
+        <a href="{% url 'services:booking' %}"><button class="btn">Booking History</button></a>
+    </div>
+</body>
+</html>
+	

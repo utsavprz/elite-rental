@@ -1,0 +1,213 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="{%static 'home/index.css'%}">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home</title>
+	
+</head>
+<body>
+	<div class="nav-bar">
+        <div class="nav-logo">
+            <h1>
+            <span class="highlight">Elite</span>Rental
+        </h1></div>
+        <div class="nav-link">
+            
+            <nav>
+				<ul>
+					<li><a class="active link-href" href="{% url 'home:index' %}">Home</a></li>
+					<li><a class="link-href" href="{% url 'services:index' %}">Cars</a></li>
+					<li><a class="link-href" href="{% url 'about:about_index' %}">About</a></li>
+					<li><a class="link-href" href="{% url 'contact:contact_index' %}">Contact</a></li>
+					<li><a class="link-href" href="{% url 'faq:faq_index' %}">FAQ</a></li>
+				</ul>
+			</nav>
+        </div>
+
+        <div class="p-f">
+            <div>
+            {% if user.is_authenticated %}
+				<li><a class="link-href" href="{% url 'services:booking' %}">Booking</a></li>
+                <li><a class="img-hover link-href"   href="{% url 'accounts:profile' %}"><img src="{% static 'home/user-24.png' %}"></a></li>
+                <li><a class="img-hover link-href" href="{% url 'accounts:logout' %}"><img src="{% static 'home/logout-24.png' %}"></a></li>
+            {% else %}
+                <li style="color:yellow;"><a href="{% url 'accounts:loginPage' %}">Login</a></li>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+	<div class="main-container">
+		
+		<div class="box bounce-in-top">
+			<p class="heading wobble-hor-bottom">NEED A RIDE? </p>
+			<p class="subheading wobble-hor-bottom">YOU'VE COME TO THE RIGHT PLACE.</p>
+			<hr class="sep wobble-hor-bottom">
+			<div class="btn-container">
+				<a href="{% url 'services:index' %}"><button class="btn wobble-hor-bottom">Our Cars</button></a>
+				<a href="{% url 'about:about_index' %}"><button class="btn wobble-hor-bottom">About Us</button></a>
+			</div>
+		</div>
+	</div>
+
+	<section id="info1">
+		<div class="container">
+			<h2 class="title">Why Choose Us</h2>
+			<hr class="sep">
+			<p class="title_text">Explore your first class car rental service</p>
+			<div class="card-container">
+				<div class="card" style="background-color: #FCB401;">
+					<img src="{% static 'home/PngItem_2102230.png' %}">
+					<h3>Varieties of Vehicles</h3>
+					<p>We provide varieties of car from low prices to high prices</p>
+				</div>
+				<div class="card" style="background-color: #212181;">
+					<img src="{% static 'home/lipart.png' %}">
+					<h3>Best Rate Guarantee</h3>
+					<p>Lorem ipsum dolor sit amet, consectadipiscing elit. Aenean commodo ligula eget dolor.</p>
+				</div>
+				<div class="card" style="background-color: #FE7000;">
+					<img src="{% static 'home/phone.png' %}">
+					<h3>24/7 Customer Service</h3>
+					<p>Lorem ipsum dolor sit amet, consectadipiscing elit. Aenean commodo ligula eget dolor.</p>
+				</div>
+			</div>
+
+		</div>
+
+	</section>
+
+	<section id="info2">
+		<div class="container">
+			<h2 class="title" style="color: white;">About Us</h2>
+			<hr class="sep">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore molestias ipsa veritatis nihil iusto maiores natus dolor.</p>
+
+		</div>
+	</section>
+
+	<section id="info3">
+		<div class="container">
+			<h2 class="title">Testimonials</h2>
+			<hr class="sep">
+			<p class="title_text">From all over nepal</p>
+			<div class="card-container">
+				<div class="info3-card"">
+					<img src="{% static 'home/5.jpg' %}">
+					<h3>Angelina Smith</h3>
+					<div class="container">
+						<p>Lorem ipsum dolor sit amet, consectadipiscing elit.
+							Aenean commodo ligula eget dolor.Lorem ipsum dolor sit amet, consectadipiscing elit. Aenean commodo ligula eget dolor.</p>
+					</div>
+					
+				</div>
+				<div class="info3-card">
+					<img src="{% static 'home/5.jpg' %}">
+					<h3>Angelina Smith</h3>
+					<div class="container">
+						<p>Lorem ipsum dolor sit amet, consectadipiscing elit.
+							Aenean commodo ligula eget dolor.Lorem ipsum dolor sit amet, consectadipiscing elit. Aenean commodo ligula eget dolor.</p>
+					</div>
+				</div>
+				<div class="info3-card">
+					<img src="{% static 'home/5.jpg' %}">
+					<h3>Angelina Smith</h3>
+					<div class="container">
+						<p>Lorem ipsum dolor sit amet, consectadipiscing elit.
+							Aenean commodo ligula eget dolor.Lorem ipsum dolor sit amet, consectadipiscing elit. Aenean commodo ligula eget dolor.
+							Aenean commodo ligula eget dolor</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<section id="newsletter">
+		<div class="container">
+		<h2 class="title">Join Our Newsletter</h2>
+		<hr class="sep">
+		<form method="POST" action="{% url 'home:index' %}">
+			{% csrf_token %}
+				<input class="input-field" type="email" name ="email" value={{current_user.email}}>
+				<br>
+			{% if exists == "Yes" %}
+				<button style="background-color: grey; width: 15em;" type="submit" class="join-btn" disabled>Newsletter Subscribed</button>
+			{% else %}
+				<button type="submit" class="join-btn">Join</button>
+			{% endif %}
+
+		</form>
+	</div>
+	</section>
+
+	<footer class="footer-distributed">
+ 
+		<div class="footer-left">
+		
+		<h3><span class="highlight">Elite</span>Rental</h3>
+		
+		<p class="footer-links">
+		<a href="">Home</a>
+		·
+		<a href="#">Services</a>
+		·
+		<a href="#">Contact</a>
+		·
+		<a href="#">About</a>
+		·
+		<a href="#">Faq</a>
+
+		</p>
+		
+		<p class="footer-company-name">eliterental &copy; 2021</p>
+		</div>
+		
+		<div class="footer-center">
+		
+		<div>
+		<i class="fa fa-map-marker"></i>
+		<p><span>Dillibazar</span> Kathmandu, Nepal</p>
+		</div>
+		
+		<div>
+		<i class="fa fa-phone"></i>
+		<p>+1 555 123456</p>
+		</div>
+		
+		<div>
+		<i class="fa fa-envelope"></i>
+		<p><a href="mailto:support@company.com">contact@eliterental.com</a></p>
+		</div>
+		
+		</div>
+		
+		<div class="footer-right">
+		
+		<p class="footer-company-about">
+		<span>About the company</span>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+		</p>
+		
+		<div class="footer-icons">
+		
+		<a href="#"><i class="fa fa-facebook"></i></a>
+		<a href="#"><i class="fa fa-twitter"></i></a>
+		<a href="#"><i class="fa fa-linkedin"></i></a>
+		<a href="#"><i class="fa fa-github"></i></a>
+		
+		</div>
+		
+		</div>
+		
+		</footer>
+		
+
+	
+
+</body>
+</html>
