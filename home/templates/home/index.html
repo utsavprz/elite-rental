@@ -4,7 +4,7 @@
 <head>
 	
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="{%static 'home/index.css'%}">
+	<link rel="stylesheet" type="text/css" href="{%static 'home/indexStyle.css'%}">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Home</title>
@@ -41,16 +41,18 @@
             </div>
         </div>
     </div>
-	<section id="showcase">
-		<div class="container">
-			<div class="slide-right">
-				<h2>
-				RENT THE NEW <span style="color: #fc3434;">Civic TypeR</span> 
-				</h2>
+	<div class="main-container">
+		
+		<div class="box">
+			<p class="heading">NEED A RIDE? </p>
+			<p class="subheading">YOU'VE COME TO THE RIGHT PLACE.</p>
+			<hr class="sep">
+			<div class="btn-container">
+				<a href="{% url 'services:index' %}"><button class="btn">Our Cars</button></a>
+				<a href="{% url 'about:about_index' %}"><button class="btn">About Us</button></a>
 			</div>
-			<img src="{% static 'home/civic.jpg' %}">
 		</div>
-	</section>
+	</div>
 
 	<section id="info1">
 		<div class="container">
