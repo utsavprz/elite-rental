@@ -121,7 +121,7 @@ ul {
 	background-repeat: no-repeat;
 }
 .box{
-	transition: 0.6s;
+
 	margin: 0 auto ;
 	height:250px;
 	width:550px;
@@ -130,6 +130,27 @@ ul {
 	border-radius: 10px;
 	padding-top: 35px;
 }
+.bounce-in-top{
+  animation:bounce-in-top 1.8s both
+}
+@keyframes bounce-in-top{
+  0%{transform:translateY(-500px);
+    animation-timing-function:ease-in;opacity:0}
+  38%{transform:translateY(0);
+    animation-timing-function:ease-out;opacity:1}
+  55%{transform:translateY(-65px);
+    animation-timing-function:ease-in}
+  72%{transform:translateY(0);
+    animation-timing-function:ease-out}
+  81%{transform:translateY(-28px);
+    animation-timing-function:ease-in}
+  90%{transform:translateY(0);
+    animation-timing-function:ease-out}
+  95%{transform:translateY(-8px);
+    animation-timing-function:ease-in}
+  100%{transform:translateY(0);
+    animation-timing-function:ease-out}
+  }
 
 .btn-container{
 	display: flex;
@@ -159,6 +180,14 @@ ul {
 	outline: none;
 	margin-top: 20px;
 }
+
+
+.wobble-hor-bottom{
+  -webkit-animation:wobble-hor-bottom 1.9s both;
+  animation:wobble-hor-bottom 1.9s both
+}
+@-webkit-keyframes wobble-hor-bottom{0%,100%{-webkit-transform:translateX(0);transform:translateX(0);-webkit-transform-origin:50% 50%;transform-origin:50% 50%}15%{-webkit-transform:translateX(-30px) rotate(-6deg);transform:translateX(-30px) rotate(-6deg)}30%{-webkit-transform:translateX(15px) rotate(6deg);transform:translateX(15px) rotate(6deg)}45%{-webkit-transform:translateX(-15px) rotate(-3.6deg);transform:translateX(-15px) rotate(-3.6deg)}60%{-webkit-transform:translateX(9px) rotate(2.4deg);transform:translateX(9px) rotate(2.4deg)}75%{-webkit-transform:translateX(-6px) rotate(-1.2deg);transform:translateX(-6px) rotate(-1.2deg)}}@keyframes wobble-hor-bottom{0%,100%{-webkit-transform:translateX(0);transform:translateX(0);-webkit-transform-origin:50% 50%;transform-origin:50% 50%}15%{-webkit-transform:translateX(-30px) rotate(-6deg);transform:translateX(-30px) rotate(-6deg)}30%{-webkit-transform:translateX(15px) rotate(6deg);transform:translateX(15px) rotate(6deg)}45%{-webkit-transform:translateX(-15px) rotate(-3.6deg);transform:translateX(-15px) rotate(-3.6deg)}60%{-webkit-transform:translateX(9px) rotate(2.4deg);transform:translateX(9px) rotate(2.4deg)}75%{-webkit-transform:translateX(-6px) rotate(-1.2deg);transform:translateX(-6px) rotate(-1.2deg)}}
+
 .btn:hover{
 	background-color: rgb(29, 29, 233);
 	background-color: aqua;
