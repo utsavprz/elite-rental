@@ -221,6 +221,7 @@ ul {
   float: left;
   width: 100%;
   padding: 10px 0 0 0;
+  height: 250px;
   text-align: center;
   margin: 15px auto;
   color: white;
@@ -344,14 +345,14 @@ ul {
 .card{
   float: left;
   width: 30%;
+  margin: 20px;
   padding: 10px;
   text-align: center;
   margin: 40px auto;
   margin-left: 20px;
   color: white;
   box-shadow: 0 3px 3px #c8d0d8;
-  /* animation: 2s slide-right 4s forwards;
-  transform:translateX(-100%); */
+
 }
 
 .card img {
