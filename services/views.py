@@ -30,9 +30,8 @@ def display(request):
     context = {
         'vehicle_info':vehicle_info,
         'category_name': category_name,
-    }
-    return render(request,'services/display.html',context) 
-
+    }     
+    return render (request, 'services/display.html',context)
 
 def detail(request,car_id):
     car_pk = vehicleInfo.objects.get(pk=car_id)
@@ -121,7 +120,7 @@ def detail(request,car_id):
 def booking(request):
     current_user = request.user
     history = bookInstantly.objects.filter(user_id_id = current_user.id)
-    img = vehicleInfo.objects.all()
+    img = vehicleInfo.objects.all()        
 
 
     context ={
